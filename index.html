@@ -1,114 +1,78 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+
+<html lang="en">
 
 <head>
 
   <meta charset="UTF-8" />
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-  <title>Starlette - Scale Your Business With Us</title>
+  <title>Starlette - Shine Like The Stars ✨</title>
+
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
 
   <style>
 
-    :root {
+    *{margin:0;padding:0;box-sizing:border-box;font-family:Arial, sans-serif;}
 
-      --primary: #c6a0f6;
+    body{background:#fff;color:#333;line-height:1.6;}
 
-      --background: #ffffff;
+    header{background:#fff;box-shadow:0 2px 5px rgba(0,0,0,0.1);position:sticky;top:0;z-index:1000;}
 
-      --text-dark: #2e2e2e;
+    header .container{display:flex;justify-content:space-between;align-items:center;padding:15px 30px;}
 
-      --text-light: #666;
+    header h1{color:#6a0dad;font-size:24px;}
 
-    }body {
+    nav a{margin:0 10px;color:#333;text-decoration:none;font-weight:bold;}
 
-  margin: 0;
+    nav a:hover{color:#6a0dad;}
 
-  font-family: 'Segoe UI', sans-serif;
+    .hero{text-align:center;padding:70px 20px;background:#faf6ff;}
 
-  background-color: var(--background);
+    .hero h2{font-size:32px;margin-bottom:15px;}
 
-  color: var(--text-dark);
+    .hero p{max-width:600px;margin:auto;margin-bottom:25px;}
 
-}
+    .btn{background:linear-gradient(90deg,#7b2cbf,#9d4edd);color:#fff;padding:12px 25px;
 
-header {
+         border-radius:25px;text-decoration:none;font-weight:bold;transition:0.3s;}
 
-  background-color: var(--primary);
+    .btn:hover{opacity:0.85;}
 
-  color: white;
+    section{padding:60px 20px;max-width:1100px;margin:auto;}
 
-  padding: 2rem;
+    section h2{text-align:center;margin-bottom:30px;color:#6a0dad;font-size:26px;}
 
-  text-align: center;
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px;}
 
-}
+    .card{background:#fff;padding:20px;border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,0.1);text-align:center;}
 
-nav {
+    .card i{font-size:40px;color:#7b2cbf;margin-bottom:15px;}
 
-  display: flex;
+    .projects .card i{font-size:60px;margin-bottom:10px;}
 
-  justify-content: center;
+    .career .card{text-align:center;}
 
-  gap: 2rem;
+    .career .btn{margin-top:15px;display:inline-block;}
 
-  background-color: #f6f4fb;
+    .contact form{display:grid;gap:15px;max-width:500px;margin:auto;}
 
-  padding: 1rem 0;
+    .contact input,.contact textarea{padding:12px;border:1px solid #ccc;border-radius:8px;width:100%;}
 
-}
+    .contact button{background:linear-gradient(90deg,#7b2cbf,#9d4edd);color:#fff;border:none;
 
-nav a {
+                    padding:12px;border-radius:25px;font-weight:bold;cursor:pointer;}
 
-  text-decoration: none;
+    .contact button:hover{opacity:0.9;}
 
-  color: var(--text-dark);
+    footer{background:#6a0dad;color:#fff;text-align:center;padding:15px;position:relative;}
 
-  font-weight: bold;
+    .whatsapp{position:fixed;bottom:20px;right:20px;background:#25d366;color:#fff;font-size:28px;
 
-}
+              padding:12px;border-radius:50%;text-align:center;box-shadow:0 2px 6px rgba(0,0,0,0.3);}
 
-section {
-
-  padding: 4rem 2rem;
-
-  max-width: 900px;
-
-  margin: auto;
-
-}
-
-h2 {
-
-  color: var(--primary);
-
-}
-
-.service-img, .project-img {
-
-  width: 100%;
-
-  max-width: 600px;
-
-  border-radius: 10px;
-
-  margin: 1rem 0;
-
-}
-
-footer {
-
-  background-color: #f1eff8;
-
-  padding: 2rem;
-
-  text-align: center;
-
-  font-size: 0.9rem;
-
-  color: var(--text-light);
-
-}
+    .whatsapp:hover{opacity:0.8;}
 
   </style>
 
@@ -118,69 +82,158 @@ footer {
 
   <header>
 
-    <h1>Starlette</h1>
+    <div class="container">
 
-    <p>Scale Your Business With Us</p>
+      <h1>Starlette</h1>
 
-  </header>  <nav>
+      <nav>
 
-    <a href="#services">Services</a>
+        <a href="#services">Services</a>
 
-    <a href="#projects">Projects</a>
+        
+        <a href="#projects">Projects</a> 
 
-    <a href="#career">Career</a>
+        <a href="#career">Career</a>
 
-    <a href="#contact">Contact</a>
+        <a href="#contact">Contact</a>
 
-  </nav>  <section id="services">
+      </nav>
+
+    </div>
+
+  </header>
+
+  <section class="hero">
+
+    <h2>Scale Your Business With Us</h2>
+
+    <p>Starlette empowers brands with high-quality BPO services: Leads Qualification, Welcome Calls, NDR Management & Presales.<br>Shine Like The Stars ✨</p>
+
+    <a href="mailto:hello@starlette.co.in" class="btn">Get a Free Consultation</a>
+
+  </section>
+
+  <section id="services">
 
     <h2>Our Services</h2>
 
-    <img src="https://images.unsplash.com/photo-1581092335121-9b0c0f15e722?auto=format&fit=crop&w=900&q=80" alt="Customer Service" class="service-img" />
+    <div class="grid">
 
-    <ul>
+      <div class="card"><i class='bx bx-filter-alt'></i><h3>Leads Qualification</h3><p>Identify and prioritize high-quality prospects to maximize conversions.</p></div>
 
-      <li><strong>Leads Qualification:</strong> Our trained telecalling team filters and validates leads based on real conversations. We ensure that only high-intent and accurate contacts are passed to your sales team, improving conversion rates and saving time.</li>
+      <div class="card"><i class='bx bx-phone-call'></i><h3>Welcome Calls</h3><p>Ensure smooth onboarding with personalized welcome calls and support.</p></div>
 
-      <li><strong>Welcome Calls:</strong> We help you create a lasting first impression by connecting with new customers or users through personalized welcome calls. This builds trust and increases engagement from the beginning.</li>
+      <div class="card"><i class='bx bx-package'></i><h3>NDR Management</h3><p>Efficient resolution of non-delivery cases and logistics challenges.</p></div>
 
-      <li><strong>NDR Management for Logistics:</strong> Failed deliveries are costly. We call your customers in real-time to resolve delivery exceptions (NDRs), verify addresses, and reduce return-to-origin rates, saving you logistics expenses and improving success rates.</li>
+      <div class="card"><i class='bx bx-line-chart'></i><h3>Presales Assistance</h3><p>Engage leads early with demos and nurture strategies that boost sales.</p></div>
 
-      <li><strong>Presales:</strong> Our presales agents act as the bridge between marketing and sales. We warm up prospects, answer common queries, and schedule qualified leads for your sales representatives—making the closing process faster and more efficient.</li>
+      <div class="card"><i class='bx bx-bar-chart-alt-2'></i><h3>Data Insights</h3><p>Transform raw data into actionable insights to scale your operations.</p></div>
 
-    </ul>
+      <div class="card"><i class='bx bx-group'></i><h3>Team Training</h3><p>Equip your workforce with skills and processes that enhance customer satisfaction.</p></div>
 
-  </section>  <section id="projects">
+    </div>
 
-    <h2>Completed Projects</h2>
+  </section>
 
-    <img src="https://images.unsplash.com/photo-1603791440384-56cd371ee9a7?auto=format&fit=crop&w=900&q=80" alt="Swiggy Rider Onboarding" class="project-img" />
+  <section id="projects" class="projects">
 
-    <p>One of our proudest achievements includes the <strong>Swiggy Rider Onboarding Process</strong>. Our team managed the end-to-end onboarding journey across multiple Indian cities. This included tele-verification, documentation, real-time updates, and follow-ups with 100% compliance and accuracy, onboarding thousands of delivery partners efficiently.</p>
+    <h2>Projects</h2>
 
-  </section>  <section id="career">
+    <div class="card">
 
-    <h2>Join Our Team</h2>
+      <i class='bx bxs-store-alt'></i>
 
-    <p>We're always on the lookout for energetic and passionate individuals to join our growing team. Whether you're looking for a remote telecalling role, backend coordination, or team leadership opportunities—we'd love to hear from you.</p>
+      <h3>Swiggy Rider Onboarding</h3>
 
-    <a href="https://docs.google.com/forms/d/e/1FAIpQLSep53nUEnuWZsem8O8Oo5NTrH-_t9OAkjV60cSqmYJlsdMQ3Q/viewform" target="_blank" style="display:inline-block;margin-top:1rem;padding:0.75rem 1.5rem;background-color:var(--primary);color:white;text-decoration:none;border-radius:5px;">Apply Now</a>
+      <p>We streamlined Swiggy's rider onboarding across India, improving speed and reducing drop-offs by 30%.</p>
 
-  </section>  <section id="contact">
+    </div>
+
+  </section>
+
+  <section id="testimonials">
+
+    <h2>What Our Clients Say</h2>
+
+    <div class="grid">
+
+      <div class="card"><p>“Starlette helped us reduce NDR issues by 40% within weeks. Highly reliable team!”</p><strong>- Logistics Partner</strong></div>
+
+      <div class="card"><p>“Their lead qualification process doubled our conversion rates. Amazing results.”</p><strong>- SaaS Company</strong></div>
+
+    </div>
+
+  </section>
+
+  <section id="career" class="career">
+
+    <h2>Careers</h2>
+
+    <div class="card">
+
+      <p>Join our growing team of passionate professionals. We are always looking for talented individuals.</p>
+
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSep53nUEnuWZsem8O8Oo5NTrH-_t9OAkjV60cSqmYJlsdMQ3Q/viewform?usp=sf_link" target="_blank" class="btn">Apply Now</a>
+
+    </div>
+
+  </section>
+
+  <section id="contact" class="contact">
 
     <h2>Contact Us</h2>
 
-    <p><strong>Phone:</strong> 9752316584 / 9140480533</p>
+    <form>
 
-    <p><strong>Email:</strong> hello@starlette.co.in</p>
+      <input type="text" placeholder="Your Name" required>
 
-    <p><strong>Website:</strong> starlette.co.in</p>
+      <input type="email" placeholder="Your Email" required>
 
-  </section>  <footer>
+      <textarea rows="4" placeholder="Your Message" required></textarea>
 
-    <p>&copy; 2025 Starlette. Shine Like The Stars.</p>
+      <button type="submit">Send Message</button>
+
+    </form>
+
+    <div style="text-align:center;margin-top:20px;">
+
+      <p>📍 At Village Adegaon Seoni MP 40887</p>  
+                                                                <p>📍 At lanka road nariya Varanshi UP 221005</p>
+
+      
+      <p><a href="mailto:hello@starlette.co.in">📧 hello@starlette.co.in</a></p>
+
+      <p><a href="http://www.starlette.co.in" target="_blank">www.starlette.co.in</a></p>
+
+    </div>
+
+  </section>
+
+  <footer>
+
+    © 2025 Starlette. Shine Like The Stars ✨
 
   </footer>
+
+  <a href="https://wa.me/919752316584" class="whatsapp"><i class='bx bxl-whatsapp'></i></a>
+
+  <script>
+
+    // Smooth scroll
+
+    document.querySelectorAll('nav a').forEach(link=>{
+
+      link.addEventListener('click',function(e){
+
+        e.preventDefault();
+
+        document.querySelector(this.getAttribute('href')).scrollIntoView({behavior:'smooth'});
+
+      });
+
+    });
+
+  </script>
 
 </body>
 
