@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Login - Starlette</title>
+  <style>
+    body { font-family: Arial, sans-serif; background: #f0f0f5; display:flex; justify-content:center; align-items:center; height:100vh; }
+    .login-box { background:#fff; padding:20px; border-radius:10px; box-shadow:0 0 10px rgba(0,0,0,0.1); width:300px; }
+    h2 { text-align:center; color:#6a0dad; }
+    input { width:100%; padding:10px; margin:10px 0; border:1px solid #ccc; border-radius:5px; }
+    button { width:100%; padding:10px; background:#6a0dad; color:#fff; border:none; border-radius:5px; cursor:pointer; }
+    button:hover { background:#4b0082; }
+    .error { color:red; text-align:center; }
+  </style>
+</head>
+<body>
+  <div class="login-box">
+    <h2>Admin Login</h2>
+    <input type="email" id="username" placeholder="Email" />
+    <input type="password" id="password" placeholder="Password" />
+    <button onclick="login()">Login</button>
+    <p id="error" class="error"></p>
+  </div>
+
+  <script>
+    function login() {
+      const user = document.getElementById("username").value;
+      const pass = document.getElementById("password").value;
+
+      if (user === "hello@starlette" && pass === "hello@8878") {
+        // Login success → redirect to admin dashboard
+        window.location.href = "dashboard.html";
+      } else {
+        document.getElementById("error").innerText = "Invalid username or password!";
+      }
+    }
+  </script>
+</body>
+</html>
