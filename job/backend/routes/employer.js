@@ -21,3 +21,13 @@ router.get("/", async (req, res) => {
 });
 
 export default router;
+// Update employer status
+router.put("/:id", async (req, res) => {
+  try {
+    const { status } = req.body;
+    await Employer.findByIdAndUpdate(req.params.id, { status });
+    res.json({ message: "Status updated successfully" });
+  } catch (err) {
+    res.status(400).json({ error: err.message });
+  }
+});
