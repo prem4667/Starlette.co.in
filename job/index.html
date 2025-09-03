@@ -1,170 +1,56 @@
 <!DOCTYPE html>
-
 <html lang="en">  
 <head>  
   <meta charset="UTF-8">  
   <meta name="viewport" content="width=device-width, initial-scale=1.0">  
-  <title>Starlette</title>    <!-- Google Fonts -->    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">    <!-- Font Awesome (for icons) -->    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">    <!-- AOS Animation CSS -->    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css"/>    <style>  
-    * {  
-      margin: 0;  
-      padding: 0;  
-      box-sizing: border-box;  
-      font-family: "Poppins", sans-serif;  
-    }  
-  
-    body {  
-      background: #f9f9fb;  
-      color: #333;  
-      line-height: 1.6;  
-    }  
-  
+  <title>Starlette</title>  
+
+  <!-- Google Fonts -->    
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">    
+
+  <!-- Font Awesome (for icons) -->    
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">    
+
+  <!-- AOS Animation CSS -->    
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css"/>    
+
+  <style>  
+    * {margin:0; padding:0; box-sizing:border-box; font-family:"Poppins",sans-serif;}  
+    body {background:#f9f9fb; color:#333; line-height:1.6;}  
+
     /* Header */  
-    header {  
-      background: linear-gradient(135deg, #6c4ad0, #3a8ef6);  
-      color: #fff;  
-      padding: 1rem 2rem;  
-      text-align: center;  
-      position: sticky;  
-      top: 0;  
-      z-index: 1000;  
-    }  
-  
-    header h1 {  
-      font-size: 2rem;  
-      font-weight: 700;  
-    }  
-  
-    header p {  
-      font-size: 1rem;  
-      opacity: 0.9;  
-    }  
-  
-    nav {  
-      margin-top: 1rem;  
-    }  
-  
-    nav a {  
-      margin: 0 1rem;  
-      text-decoration: none;  
-      color: #fff;  
-      font-weight: 500;  
-      transition: 0.3s;  
-    }  
-  
-    nav a:hover {  
-      text-decoration: underline;  
-    }  
-  
+    header {background:linear-gradient(135deg,#6c4ad0,#3a8ef6); color:#fff; padding:1rem 2rem; text-align:center; position:sticky; top:0; z-index:1000;}  
+    header h1 {font-size:2rem; font-weight:700;}  
+    header p {font-size:1rem; opacity:0.9;}  
+    nav {margin-top:1rem;}  
+    nav a {margin:0 1rem; text-decoration:none; color:#fff; font-weight:500; transition:0.3s;}  
+    nav a:hover {text-decoration:underline;}  
+
     /* Sections */  
-    .section {  
-      background: #fff;  
-      margin: 2rem auto;  
-      padding: 2rem;  
-      border-radius: 16px;  
-      max-width: 650px;  
-      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);  
-    }  
-  
-    .section h2 {  
-      color: #6c4ad0;  
-      margin-bottom: 1rem;  
-      font-size: 1.6rem;  
-    }  
-  
-    .section p {  
-      margin-bottom: 1.5rem;  
-      font-size: 1rem;  
-      color: #555;  
-    }  
-  
+    .section {background:#fff; margin:2rem auto; padding:2rem; border-radius:16px; max-width:650px; box-shadow:0 6px 16px rgba(0,0,0,0.08);}  
+    .section h2 {color:#6c4ad0; margin-bottom:1rem; font-size:1.6rem;}  
+    .section p {margin-bottom:1.5rem; font-size:1rem; color:#555;}  
+
     /* Buttons */  
-    .btn {  
-      display: inline-block;  
-      background: linear-gradient(135deg, #6c4ad0, #3a8ef6);  
-      color: #fff;  
-      padding: 0.8rem 1.8rem;  
-      border-radius: 10px;  
-      font-weight: 600;  
-      text-decoration: none;  
-      transition: 0.3s;  
-    }  
-  
-    .btn:hover {  
-      transform: scale(1.05);  
-      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.2);  
-    }  
-  
+    .btn {display:inline-block; background:linear-gradient(135deg,#6c4ad0,#3a8ef6); color:#fff; padding:0.8rem 1.8rem; border-radius:10px; font-weight:600; text-decoration:none; transition:0.3s;}  
+    .btn:hover {transform:scale(1.05); box-shadow:0 6px 14px rgba(0,0,0,0.2);}  
+
     /* Form */  
-    form .input-group {  
-      position: relative;  
-      margin-bottom: 1rem;  
-    }  
-  
-    form .input-group i {  
-      position: absolute;  
-      top: 50%;  
-      left: 12px;  
-      transform: translateY(-50%);  
-      color: #6c4ad0;  
-    }  
-  
-    form input {  
-      width: 100%;  
-      padding: 0.9rem 0.9rem 0.9rem 2.5rem;  
-      border: 1px solid #ccc;  
-      border-radius: 10px;  
-      font-size: 0.95rem;  
-      transition: 0.3s;  
-    }  
-  
-    form input:focus {  
-      border-color: #6c4ad0;  
-      outline: none;  
-      box-shadow: 0 0 6px rgba(108, 74, 208, 0.3);  
-    }  
-  
-    form button {  
-      width: 100%;  
-      background: linear-gradient(135deg, #6c4ad0, #3a8ef6);  
-      color: #fff;  
-      padding: 0.9rem;  
-      border: none;  
-      border-radius: 10px;  
-      font-weight: 600;  
-      cursor: pointer;  
-      transition: 0.3s;  
-    }  
-  
-    form button:hover {  
-      transform: scale(1.03);  
-      box-shadow: 0 6px 14px rgba(0,0,0,0.2);  
-    }  
-  
+    form .input-group {position:relative; margin-bottom:1rem;}  
+    form .input-group i {position:absolute; top:50%; left:12px; transform:translateY(-50%); color:#6c4ad0;}  
+    form input {width:100%; padding:0.9rem 0.9rem 0.9rem 2.5rem; border:1px solid #ccc; border-radius:10px; font-size:0.95rem; transition:0.3s;}  
+    form input:focus {border-color:#6c4ad0; outline:none; box-shadow:0 0 6px rgba(108,74,208,0.3);}  
+    form button {width:100%; background:linear-gradient(135deg,#6c4ad0,#3a8ef6); color:#fff; padding:0.9rem; border:none; border-radius:10px; font-weight:600; cursor:pointer; transition:0.3s;}  
+    form button:hover {transform:scale(1.03); box-shadow:0 6px 14px rgba(0,0,0,0.2);}  
+
     /* Footer */  
-    footer {  
-      background: #222;  
-      color: #bbb;  
-      text-align: center;  
-      padding: 2rem 1rem;  
-      margin-top: 3rem;  
-    }  
-  
-    footer p {  
-      margin-bottom: 1rem;  
-    }  
-  
-    footer .social i {  
-      margin: 0 10px;  
-      font-size: 1.2rem;  
-      color: #bbb;  
-      transition: 0.3s;  
-      cursor: pointer;  
-    }  
-  
-    footer .social i:hover {  
-      color: #fff;  
-    }  
-  </style>  </head>  
+    footer {background:#222; color:#bbb; text-align:center; padding:2rem 1rem; margin-top:3rem;}  
+    footer p {margin-bottom:1rem;}  
+    footer .social i {margin:0 10px; font-size:1.2rem; color:#bbb; transition:0.3s; cursor:pointer;}  
+    footer .social i:hover {color:#fff;}  
+  </style>  
+</head>  
+
 <body>  
   <!-- Header -->  
   <header data-aos="fade-down">  
@@ -174,43 +60,80 @@
       <a href="#">Job Seeker</a>  
       <a href="#">Employer Registration</a>  
     </nav>  
-  </header>    <!-- Job Seeker Section -->    <section class="section" data-aos="fade-up">  
+  </header>  
+
+  <!-- Job Seeker Section -->  
+  <section class="section" data-aos="fade-up">  
     <h2>Find Jobs Easier With Us</h2>  
     <p>Download our app to create your job profile and apply for top opportunities instantly. Register yourself now and start your career journey with Starlette!</p>  
     <a href="#" class="btn">Download App</a>  
-  </section>    <!-- Employer Registration Section -->    <section class="section" data-aos="fade-up" data-aos-delay="200">  
+  </section>  
+
+  <!-- Employer Registration Section -->  
+  <section class="section" data-aos="fade-up" data-aos-delay="200">  
     <h2>Employer Registration</h2>  
     <p>Register your company and start posting jobs to attract top talent.</p>  
-    <form>  
+    <form id="employerForm">  
       <div class="input-group">  
         <i class="fa fa-user"></i>  
-        <input type="text" placeholder="Full Name" required>  
+        <input type="text" name="name" placeholder="Full Name" required>  
       </div>  
       <div class="input-group">  
         <i class="fa fa-phone"></i>  
-        <input type="tel" placeholder="Phone Number" required>  
+        <input type="tel" name="phone" placeholder="Phone Number" required>  
       </div>  
       <div class="input-group">  
         <i class="fa fa-briefcase"></i>  
-        <input type="text" placeholder="Position" required>  
+        <input type="text" name="position" placeholder="Position" required>  
       </div>  
       <div class="input-group">  
-        <i class="fa fa-file"></i>  
-        <input type="file" required>  
+        <i class="fa fa-building"></i>  
+        <input type="text" name="company" placeholder="Company Name" required>  
       </div>  
       <button type="submit">Register Now</button>  
     </form>  
-  </section>    <!-- Footer -->    <footer>  
+  </section>  
+
+  <!-- Footer -->  
+  <footer>  
     <p>© 2025 Starlette. All rights reserved.</p>  
     <div class="social">  
       <i class="fab fa-linkedin"></i>  
       <i class="fab fa-twitter"></i>  
       <i class="fab fa-facebook"></i>  
     </div>  
-  </footer>    <!-- AOS Animation Script -->    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>    <script>  
-    AOS.init({  
-      duration: 1000,  
-      once: true  
-    });  
-  </script>  </body>  
-</html>   
+  </footer>  
+
+  <!-- AOS Animation Script -->  
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>  
+  <script>  
+    AOS.init({duration:1000, once:true});  
+  </script>  
+
+  <!-- Employer Form Script -->  
+  <script>
+    const scriptURL = "https://script.google.com/macros/s/AKfycbz5Azwt1bw4sGtcwPvlBaXeq4x8P8rf_aoBktDXRykx0htvPFz9hV2uB_Pye67ARmjJCQ/exec";
+    const form = document.getElementById("employerForm");
+
+    form.addEventListener("submit", e => {
+      e.preventDefault();
+
+      const formData = new FormData(form);
+      const data = {};
+      formData.forEach((value, key) => (data[key] = value));
+
+      fetch(scriptURL, {
+        method: "POST",
+        body: JSON.stringify(data),
+        headers: {"Content-Type": "application/json"},
+      })
+      .then(res => res.text())
+      .then(() => {
+        alert("✅ Employer registered successfully!");
+        form.reset();
+      })
+      .catch(err => alert("❌ Error: " + err));
+    });
+  </script>
+</body>  
+</html>
