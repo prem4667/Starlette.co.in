@@ -1,244 +1,209 @@
 <!DOCTYPE html>
-
 <html lang="en">
-
 <head>
-
-  <meta charset="UTF-8" />
-
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Starlette - Shine Like The Stars ✨</title>
+  <meta name="description" content="Starlette BPO — Leads Qualification, Welcome Calls, NDR Management, Presales & Data Insights." />
+  <meta name="theme-color" content="#f3e8ff" />
 
-  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
 
+  <!-- Custom CSS -->
   <style>
+    body { font-family: 'Arial', sans-serif; background: #fff; color: #333; }
+    h1,h2,h3,h4,h5,h6 { font-weight: 700; }
+    a { text-decoration: none; }
 
-    *{margin:0;padding:0;box-sizing:border-box;font-family:Arial, sans-serif;}
+    /* Section animation */
+    section { opacity: 0; transform: translateY(40px); transition: all 1s ease; }
+    section.visible { opacity: 1; transform: translateY(0); }
 
-    body{background:#fff;color:#333;line-height:1.6;}
+    /* Header */
+    .navbar { background: #f9f4ff; }
+    .navbar-brand { font-size: 2.4rem; font-weight: 900; }
+    .navbar-brand span { color: #7c4dff; }
 
-    header{background:#fff;box-shadow:0 2px 5px rgba(0,0,0,0.1);position:sticky;top:0;z-index:1000;}
+    /* Hero / Welcome */
+    .section { padding: 60px 0; }
+    .welcome-title { font-size: 2rem; font-weight: 800; }
+    .welcome-title span { color: #7c4dff; }
+    .text-muted { color: #666 !important; font-size: 1rem; }
+    .subline { font-size: 1.25rem; font-weight: 600; color: #7c4dff; margin-top: 15px; }
 
-    header .container{display:flex;justify-content:space-between;align-items:center;padding:15px 30px;}
+    /* Service Boxes */
+    .service-box {
+      padding: 25px; border-radius: 10px; background: #f9f4ff; border: 1px solid #e0d4ff;
+      margin-bottom: 20px; transition: all 0.5s ease; transform: scale(0.95); opacity: 0;
+      display: flex; align-items: center; gap: 15px;
+    }
+    .service-box.visible { transform: scale(1); opacity: 1; transition: all 0.7s ease; }
+    .service-box:hover { transform: translateY(-10px) scale(1.02); box-shadow: 0 8px 20px rgba(124,77,255,0.2); }
 
-    header h1{color:#6a0dad;font-size:24px;}
+    .service-box i { font-size: 2rem; color: #7c4dff; }
 
-    nav a{margin:0 10px;color:#333;text-decoration:none;font-weight:bold;}
+    /* Buttons */
+    .btn-primary { background-color: #7c4dff; border: none; transition: all 0.3s ease; }
+    .btn-primary:hover { background-color: #652cd8; }
 
-    nav a:hover{color:#6a0dad;}
+    /* Footer */
+    footer { padding: 30px 0; text-align: center; font-size: 14px; color: #555; background: #f3e8ff; }
 
-    .hero{text-align:center;padding:70px 20px;background:#faf6ff;}
+    /* Light purple backgrounds */
+    .bg-light { background: #f9f4ff !important; }
 
-    .hero h2{font-size:32px;margin-bottom:15px;}
-
-    .hero p{max-width:600px;margin:auto;margin-bottom:25px;}
-
-    .btn{background:linear-gradient(90deg,#7b2cbf,#9d4edd);color:#fff;padding:12px 25px;
-
-         border-radius:25px;text-decoration:none;font-weight:bold;transition:0.3s;}
-
-    .btn:hover{opacity:0.85;}
-
-    section{padding:60px 20px;max-width:1100px;margin:auto;}
-
-    section h2{text-align:center;margin-bottom:30px;color:#6a0dad;font-size:26px;}
-
-    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px;}
-
-    .card{background:#fff;padding:20px;border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,0.1);text-align:center;}
-
-    .card i{font-size:40px;color:#7b2cbf;margin-bottom:15px;}
-
-    .projects .card i{font-size:60px;margin-bottom:10px;}
-
-    .career .card{text-align:center;}
-
-    .career .btn{margin-top:15px;display:inline-block;}
-
-    .contact form{display:grid;gap:15px;max-width:500px;margin:auto;}
-
-    .contact input,.contact textarea{padding:12px;border:1px solid #ccc;border-radius:8px;width:100%;}
-
-    .contact button{background:linear-gradient(90deg,#7b2cbf,#9d4edd);color:#fff;border:none;
-
-                    padding:12px;border-radius:25px;font-weight:bold;cursor:pointer;}
-
-    .contact button:hover{opacity:0.9;}
-
-    footer{background:#6a0dad;color:#fff;text-align:center;padding:15px;position:relative;}
-
-
-
-              padding:12px;border-radius:50%;text-align:center;box-shadow:0 2px 6px rgba(0,0,0,0.3);}
-
-
-
+    @media(max-width:768px){ .navbar-brand { font-size:1.8rem; } }
   </style>
-
 </head>
 
 <body>
 
-  <header>
-
-    <div class="container">
-
-      <h1>Starlette</h1>
-
-      <nav>
-
-       
-        <a href="#services">Services</a>
-
-        
-        <a href="#projects">Projects</a> 
-
-        <a href="#career">Career</a>
-
-        <a href="#contact">Contact</a>
-
-      </nav>
-
+<!-- HEADER -->
+<nav class="navbar navbar-expand-lg navbar-light py-3">
+  <div class="container">
+    <a href="#" class="navbar-brand"><span>S</span>tarlette</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navmenu">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="#expertise">Services</a></li>
+        <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+        <li class="nav-item"><a class="nav-link" href="#career">Career</a></li>
+        <li class="nav-item"><a class="nav-link" href="#visit">Contact</a></li>
+      </ul>
     </div>
+  </div>
+</nav>
 
-  </header>
+<!-- WELCOME -->
+<section class="text-center section">
+  <h1 class="welcome-title">Welcome to <span>Starlette✨</span></h1>
+  <p class="fs-5 text-muted">Shine Like The Stars — India's Trusted BPO Partner</p>
+  <div class="subline">Scale your business with us</div><p class="fs-5 text-muted">Starlette empowers brands with high-quality BPO services: Leads Qualification, Welcome Calls, NDR Management & Presales.</p>
+</section>
 
-  <section class="hero">
-
-    <h2>Scale Your Business With Us</h2>
-
-    <p>Starlette empowers brands with high-quality BPO services: Leads Qualification, Welcome Calls, NDR Management & Presales.<br>Shine Like The Stars ✨</p>
-
-    <a href="mailto:hello@starlette.co.in" class="btn">Get a Free Consultation</a>
-
-  </section>
-
-  <section id="services">
-
-    <h2>Our Services</h2>
-
-    <div class="grid">
-
-      <div class="card"><i class='bx bx-filter-alt'></i><h3>Leads Qualification</h3><p>Identify and prioritize high-quality prospects to maximize conversions.</p></div>
-
-      <div class="card"><i class='bx bx-phone-call'></i><h3>Welcome Calls</h3><p>Ensure smooth onboarding with personalized welcome calls and support.</p></div>
-
-      <div class="card"><i class='bx bx-package'></i><h3>NDR Management</h3><p>Efficient resolution of non-delivery cases and logistics challenges.</p></div>
-
-      <div class="card"><i class='bx bx-line-chart'></i><h3>Presales Assistance</h3><p>Engage leads early with demos and nurture strategies that boost sales.</p></div>
-
-      <div class="card"><i class='bx bx-bar-chart-alt-2'></i><h3>Data Insights</h3><p>Transform raw data into actionable insights to scale your operations.</p></div>
-
-      <div class="card"><i class='bx bx-group'></i><h3>Team Training</h3><p>Equip your workforce with skills and processes that enhance customer satisfaction.</p></div>
-
+<!-- OUR EXPERTISE -->
+<section id="expertise" class="section bg-light">
+  <div class="container">
+    <h2 class="fw-bold text-center">Our Expertise</h2>
+    <h4 class="text-center mb-4">Services Designed to Convert</h4>
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div class="service-box"><i class="bi bi-people-fill"></i>
+          <div><h5>Leads Qualification</h5><p>Identify, score and prioritise high-quality prospects to improve conversions.</p></div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="service-box"><i class="bi bi-telephone-fill"></i>
+          <div><h5>Welcome Calls</h5><p>Personalised onboarding calls that increase activation and reduce early drop-offs.</p></div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="service-box"><i class="bi bi-card-checklist"></i>
+          <div><h5>NDR Management</h5><p>Fast case resolution workflows for non-delivery — reattempts, partner coordination & communication.</p></div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="service-box"><i class="bi bi-graph-up"></i>
+          <div><h5>Presales Assistance</h5><p>Early-stage engagement, demo coordination and nurture to push pipeline forward.</p></div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="service-box"><i class="bi bi-bar-chart-line-fill"></i>
+          <div><h5>Data Insights</h5><p>Dashboards & reports that surface bottlenecks and opportunities to scale operations efficiently.</p></div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="service-box"><i class="bi bi-journal-richtext"></i>
+          <div><h5>Team Training</h5><p>Process-driven training to maintain quality at scale and keep CSAT high.</p></div>
+        </div>
+      </div>
     </div>
+  </div>
+</section>
 
-  </section>
-
-  <section id="projects" class="projects">
-
-    <h2>Projects</h2>
-
-    <div class="card">
-
-      <i class='bx bxs-store-alt'></i>
-
-      <h3>Swiggy Rider Onboarding</h3>
-
-      <p>We streamlined Swiggy's rider onboarding across India, improving speed and reducing drop-offs by 30%.</p>
-
+<!-- PROJECTS -->
+<section id="projects" class="section">
+  <div class="container">
+    <h2 class="fw-bold text-center">Selected Projects</h2>
+    <div class="service-box">
+      <h4>Swiggy Rider Onboarding</h4>
+      <p>We streamlined rider onboarding across India — reduced onboarding time, increased activation and cut drop-offs by ~30% through automation, training & proactive communication.</p>
+      <a href="#" class="btn btn-primary">Discuss Similar Project</a>
     </div>
+  </div>
+</section>
 
-  </section>
+<!-- TESTIMONIALS -->
+<section id="testimonials" class="section bg-light">
+  <div class="container">
+    <h2 class="fw-bold text-center">What Our Clients Say</h2>
+    <div class="service-box">“Starlette helped us reduce NDR issues by 40% within weeks. Highly reliable team — fast results.”<br><strong>— Logistics Partner</strong></div>
+    <div class="service-box">“Their lead qualification doubled our conversion rate on high-value leads.”<br><strong>— SaaS Company</strong></div>
+    <div class="service-box">“Very professional team. Smooth onboarding & measurable improvements.”<br><strong>— Swiggy Ops Manager</strong></div>
+  </div>
+</section>
 
-  <section id="testimonials">
-
-    <h2>What Our Clients Say</h2>
-
-    <div class="grid">
-
-      <div class="card"><p>“Starlette helped us reduce NDR issues by 40% within weeks. Highly reliable team!”</p><strong>- Logistics Partner</strong></div>
-
-      <div class="card"><p>“Their lead qualification process doubled our conversion rates. Amazing results.”</p><strong>- SaaS Company</strong></div>
-
+<!-- CAREERS -->
+<section id="career" class="section">
+  <div class="container">
+    <h2 class="fw-bold text-center">Careers at Starlette</h2>
+    <p class="text-center mb-3">We're hiring across India — Operations, Quality, Training & Analytics.</p>
+    <div class="text-center">
+      <a class="btn btn-primary"
+         href="https://docs.google.com/forms/d/e/1FAIpQLSep53nUEnuWZsem8O8Oo5NTrH-_t9OAkjV60cSqmYJlsdMQ3Q/viewform?usp=sf_link"
+         target="_blank">Apply Now</a>
     </div>
+  </div>
+</section>
 
-  </section>
+<!-- VISIT + FOOTER -->
+<section id="visit" class="section bg-light">
+  <div class="container text-center">
+    <h2 class="fw-bold">Visit / Contact</h2>
+    <p>📍3HQ8+65P, Doonda Seoni, MP 480661</p>
+    <p>📍Lanka Road, Nariya, Varanasi, UP 221005</p>
+    <p>Email: hello@starlette.co.in</p>
+    <p><a href="https://www.starlette.co.in">www.starlette.co.in</a></p>
+  </div>
+</section> 
 
-  <section id="career" class="career">
+<footer>
+  <div>Starlette • Shine Like The Stars ✨</div>
+  <div>© 2025 Starlette • UDYAM-MP-42-0014669</div>
+  <div>Made with ❤️ in India</div>
+</footer>
 
-    <h2>Careers</h2>
-
-    <div class="card">
-
-      <p>Join our growing team of passionate professionals. We are always looking for talented individuals.</p>
-
-      <a href="https://docs.google.com/forms/d/e/1FAIpQLSep53nUEnuWZsem8O8Oo5NTrH-_t9OAkjV60cSqmYJlsdMQ3Q/viewform?usp=sf_link" target="_blank" class="btn">Apply Now</a>
-
-    </div>
-
-  </section>
-
-  <section id="contact" class="contact">
-
-    <h2>Contact Us</h2>
-
-    <form>
-
-      <input type="text" placeholder="Your Name" required>
-
-      <input type="email" placeholder="Your Email" required>
-
-      <textarea rows="4" placeholder="Your Message" required></textarea>
-
-      <button type="submit">Send Message</button>
-
-    </form>
-
-    <div style="text-align:center;margin-top:20px;">
-
-      <p>📍 At 3HQ8+65P,Doonda Seoni,Dorlichhatarpur, Seoni ,MP 480661</p>  
-                                                                <p>📍 At lanka road nariya Varanshi UP 221005</p>
-
-      
-      <p><a href="mailto:hello@starlette.co.in">📧 hello@starlette.co.in</a></p>
-
-      <p><a href="http://www.starlette.co.in" target="_blank">www.starlette.co.in</a></p>
-
-    </div>
-
-  </section>
-
-  <footer>
-
-    © 2025 Starlette. Shine Like The Stars ✨                 
-
-     <p> UDYAM-MP-42-0014669 </p>
-    
-  <p>  Made with 💖 in India 🇮🇳 </p>
-
-  </footer>
-
-
-  <script>
-
-    // Smooth scroll
-
-    document.querySelectorAll('nav a').forEach(link=>{
-
-      link.addEventListener('click',function(e){
-
-        e.preventDefault();
-
-        document.querySelector(this.getAttribute('href')).scrollIntoView({behavior:'smooth'});
-
+<!-- SCRIPTS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  // Fade-in on scroll for sections
+  const sections = document.querySelectorAll('section');
+  sections.forEach(sec => {
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting){ entry.target.classList.add('visible'); }
       });
+    }, { threshold: 0.2 });
+    observer.observe(sec);
+  });
 
-    });
-
-  </script>
+  // Fade-in + scale animation for service boxes
+  const boxes = document.querySelectorAll('.service-box');
+  boxes.forEach(box => {
+    const observerBox = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting){ entry.target.classList.add('visible'); }
+      });
+    }, { threshold: 0.3 });
+    observerBox.observe(box);
+  });
+</script>
 
 </body>
-
 </html>
